@@ -8,5 +8,5 @@ const productController = require("controller/product");
  * Doing some thing
  */
 //Routes
-router.post("/storeData", productController.getProductById);
+router.post("/product", productController.getProductById);
 module.exports = router;
