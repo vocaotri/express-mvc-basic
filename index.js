@@ -5,14 +5,16 @@ dotenv.config(); // Sets up dotenv as soon as our application starts
 
 var express = require("express"),
   app = express(),
-  fs = require("fs"),
-  cors = require("cors"),
-  morgan = require("morgan"),
-  bodyParser = require("body-parser"),
-  router = express.Router(),
+  path = require("path"),
   mongoose = require("mongoose");
 
+// static folder
+app.use("/", express.static(path.join(__dirname, "public")));
+
 const errorHandler = require("_helpers/error-handler");
+
+// set the view engine to ejs
+app.set("view engine", "ejs");
 
 // Setup Connection to DB
 exports.db = mongoose.connect(
